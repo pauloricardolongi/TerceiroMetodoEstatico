@@ -3,9 +3,11 @@ package aplicacao;
 import java.util.Locale;
 import java.util.Scanner;
 
+import util.Calculador;
+
 public class Programa {
 
-	public static final double PI = 3.14159;
+	
 	
 	public static void main(String[] args) {
 		/*método estático: aplicação no próprio programa*/		
@@ -13,24 +15,21 @@ public class Programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
+		Calculador calc = new Calculador();//objeto instanciado
+		
 		System.out.print("Entre com o valor do raio: ");
 		double raio = sc.nextDouble();
 		
-		double c = circunferencia(raio);
-		double v = volume(raio);
+		double c = calc.circunferencia(raio);
+		double v = calc.volume(raio);
 		
 		System.out.printf("Circunferencia: %.2f%n", c);
 		System.out.printf("Volume: %.2f%n ", v);
-		System.out.printf("PI valor: %.2f%n", PI);
+		System.out.printf("PI valor: %.2f%n", calc.PI);
 		
 		sc.close();;
 
 	}
-	  public static double circunferencia(double raio) {
-		  return 2.0 * PI * raio;
-	  }
-	  public static double volume(double raio) {
-		  return 4.0 * PI * raio * raio * raio / 3.0;
-	  }
+	 
 
 }
